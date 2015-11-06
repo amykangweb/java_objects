@@ -14,5 +14,26 @@ public class Example {
     if (!dispenser.isEmpty()) {
       System.out.println("It is no longer emtpy.");
     }
+    while (dispenser.dispense()) {
+      System.out.println("Chomp!");
+    }
+    if (dispenser.isEmpty()) {
+      System.out.println("Ate all the PEZ!");
+    }
+    dispenser.load(4);
+    dispenser.load(2);
+    while (dispenser.dispense()) {
+      System.out.println("Chomp!");
+    }
+    if (dispenser.isEmpty()) {
+      System.out.println("Ate all the PEZ!");
+    }
+    try {
+      dispenser.load(400);
+    } catch (IllegalArgumentException iae) {
+      System.out.println("Whoa there!");
+      System.out.printf("The error was: %s\n", iae.getMessage());
+    }
+
   }
 }
